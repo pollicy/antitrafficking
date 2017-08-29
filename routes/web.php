@@ -12,3 +12,4 @@
 */
 
 Route::get('/', 'PagesController@home');
+Route::get('immigration-data', 'PagesController@immigration');
