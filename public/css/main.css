@@ -255,7 +255,7 @@ a.blackLink {
 }
 
 #inorout span.on {
-    background-image: url("../images/right_blue_arrow.png");
+    background-image: url("right_blue_arrow.png");
     background-position: 0 31%;
     background-repeat: no-repeat;
 }
