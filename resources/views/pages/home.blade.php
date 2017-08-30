@@ -50,7 +50,7 @@
   <!-- begin advisory -->
   <div class="row site-advisory" id="advisory">
     <div class="col-md-6">
-      <h3>We have put together a list of potential red flags and indicators of human trafficking to help you recognize the signs. If you see any of these RED FLAGS, <b>contact the Wetaase Hotline at 0800 202 600</b> for information on referral services or to report the situation.</h3>
+      <p class="site-label">We have put together a list of potential red flags and indicators of human trafficking to help you recognize the signs. If you see any of these RED FLAGS, <b style="color: #ec6440 !important">contact the Wetaase Hotline at 0800 202 600</b> for information on referral services or to report the situation.</p>
       <ul class="site-warning-list">
         <li>Promises of employment opportunities with unreasonably high salary offers</li>
         <li>Unclear details of employer</li>
