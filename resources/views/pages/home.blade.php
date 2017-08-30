@@ -167,11 +167,14 @@
 
   <!-- begin contact -->
   <div class="row" id="contact">
-    <div class="col-md-12 contact-form-section col-md-offset-4">
+    <div class="col-md-4 contact-form-section">
+    </div>
+    <div class="col-md-4 contact-form-section">
       <h3>Get in touch</h3>
-
       <div class="g-recaptcha" data-sitekey="{{env('GOOGLE_RECAPTCHA_KEY')}}"></div>
       <div class="btn btn-danger btn-lg breather">send</div>
+    </div>
+    <div class="col-md-4 contact-form-section">
     </div>
     <!-- <div class="col-md-6 contact-form-section">
       <h1>map with location</h1>
