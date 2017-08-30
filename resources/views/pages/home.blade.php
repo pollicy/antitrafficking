@@ -27,7 +27,7 @@
   <!-- begin graphic -->
   <div class="row">
     <div class="col-md-12">
-      <img src="{{ asset('images/wetaase-graphic.png') }}"/>
+      <img src="{{ asset('images/wetaase-graphic.png') }}" class='img-responsive'/>
     </div>
   </div>
   <!--end  graphic -->
