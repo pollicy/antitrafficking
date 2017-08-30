@@ -42,14 +42,13 @@
     <div class="container-fluid" data-spy="scroll" data-target=".navbar" data-offset="10">
       <!-- begin navigation -->
       <div class="row">
-        <div class="col-md-12">
-          <nav class="navbar navbar-fixed-top" id="navBar">
-            <div class="container-fluid">
+          <nav class="navbar navbar-fixed-top" id="navBar" role="navigation">
+            <div class="container">
               <div class="navbar-header">
                 <a class="navbar-brand navbar-left" href="/"><img src="{{ asset('images/wetaase-logo.png')}}" class='img-responsive'/></a>
               </div>
               @if (Request::path() !== 'immigration-data')
-              <form class="navbar-form navbar-right">
+              <!-- <form class="navbar-form navbar-right">
                 <div class="input-group">
                   <input type="text" class="form-control" placeholder="search this website...">
                   <div class="input-group-btn">
@@ -58,9 +57,9 @@
                     </button>
                   </div>
                 </div>
-              </form>
+              </form> -->
               @endif
-              <ul class="nav navbar-nav navbar-right" id="navLinks">
+              <ul class="nav navbar-nav navbar-right topnav" id="navLinks">
                 <li class="active"><a href="/" data-toggle="tooltip" data-placement="left" title="home">home</a></li>
                 @if (Request::path()  !== 'immigration-data')
                 <li><a href="#wetaase" data-toggle="tooltip" data-placement="left" title="wetaase">wetaase</a></li>
@@ -70,10 +69,10 @@
                 <li><a href="/immigration-data" data-toggle="tooltip" data-placement="left" title="immigration map">immigration map</a></li>
                 <li><a href="#contact" data-toggle="tooltip" data-placement="left" title="contact">contact</a></li>
                 @endif
+                <li><a href="javascript:void(0);" class="icon" onclick="hamburgerMenuHandler();">&#9776;</a></li>
               </ul>
             </div>
           </nav>
-        </div>
       </div>
       <!-- end navigation -->
 
@@ -82,10 +81,13 @@
       <!-- begin footer -->
       <div class="row site-footer" id="footer">
         <div class="col-md-6">
-          <h5>&copy <?php echo Date('Y') ?> <a href="http://www.wetaase.pollicy.org">Wetaase</a> | <a href="http://www.pollicy.org">Pollicy</a> Uganda Limited</h5>
+          <h5>&copy copyright <?php echo Date('Y') ?> <a href="http://www.wetaase.pollicy.org">Wetaase</a> | <a href="http://www.pollicy.org">Pollicy</a> Uganda Limited</h5>
         </div>
         <div class="col-md-6">
-          <h5 class="text-right">social media icons with links</h5>
+          <div class="text-right">
+            <a class="btn social-link" href="https://www.facebook.com/wetaase.pollicy/"><img src="{{asset('images/facebook-icon.svg')}}"/></a>
+            <a class="btn social-link" href="https://medium.com/pollicy"><img src="{{asset('images/medium-icon.svg')}}"/></a>
+          </div>
         </div>
       </div>
       <!-- end footer -->
@@ -98,6 +100,8 @@
       $(document).ready(function(){
           $('[data-toggle="tooltip"]').tooltip();
       });
+      $("#navBar").removeClass('topnav');
+      $("#navBar").addClass('responsive');
     </script>
   </body>
 </html>

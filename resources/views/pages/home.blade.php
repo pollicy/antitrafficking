@@ -171,7 +171,7 @@
       <h3>Get in touch</h3>
 
       <div class="g-recaptcha" data-sitekey="{{env('GOOGLE_RECAPTCHA_KEY')}}"></div>
-      <div class="btn btn-danger btn-lg">send</div>
+      <div class="btn btn-danger btn-lg breather">send</div>
     </div>
     <!-- <div class="col-md-6 contact-form-section">
       <h1>map with location</h1>

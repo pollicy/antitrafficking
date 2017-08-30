@@ -17,12 +17,43 @@ body {
 
 #navLinks li a {
   color: black;
+  display: block;
 }
 
 #navLinks li a:hover {
   color: #ec6440;
   text-decoration: overline;
   border-radius: 7px;
+}
+
+.icon {
+  display: none !important;
+}
+
+.topnav {
+  overflow: hidden !important;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none !important;}
+  .icon {
+    float: right !important;
+    display: block !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative !important;}
+  .topnav.responsive a.icon {
+    position: absolute !important;
+    right: 0 !important;
+    top: 0 !important;
+  }
+  .topnav.responsive a {
+    float: none !important;
+    display: block !important;
+    text-align: left !important;
+  }
 }
 
 .site-home{
@@ -78,7 +109,7 @@ body {
 
 .contact-form-section {
   background-color: #fff;
-  padding: 10px; 
+  padding: 10px;
 }
 
 .site-button {
@@ -109,13 +140,19 @@ div .site-button a:hover {
 }
 
 .site-footer {
-  background-color: #455a64;
-  color: white;
+  background-color: #fff;
+  color: #455a64;
   height: 50px;
+  border-top:1px solid #455a64;
 }
 
 .breather {
-  padding: 5px !important;
+  margin: 15px !important;
+}
+
+.social-link {
+  height: 64px;
+  width: 64px;
 }
 
 blockquote, q {
@@ -188,7 +225,7 @@ table {
     padding: 10px;
     font-size:0.8em;
     float: left;
-    width: 184px;
+    width: auto;
     height:40px;
     /*position:absolute;*/
 }
@@ -218,7 +255,7 @@ a.blackLink {
 }
 
 #inorout span.on {
-    background-image: url("right_blue_arrow.png");
+    background-image: url("../images/right_blue_arrow.png");
     background-position: 0 31%;
     background-repeat: no-repeat;
 }
