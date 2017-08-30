@@ -17,6 +17,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link href="{{ asset('css/main.css')}}" rel="stylesheet">
+
+    <!-- recaptcha -->
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+
+    @if(Request::path() === 'immigration-data')
+      <!-- only include relevant assets -->
+      <!-- js -->
+      <script type="text/javascript" src="{{ asset('js/raphael.js')}}"></script>
+      <script type="text/javascript" src="{{ asset('js/signals.js')}}"></script>
+      <script type="text/javascript" src="{{ asset('js/hasher.js')}}"></script>
+      <script type="text/javascript" src="{{ asset('js/modernizr.geoloc.js')}}"></script>
+      <script type="text/javascript" src="{{ asset('jquery-ui-1.8.16.custom/js/jquery-1.6.2.min.js')}}"></script>
+      <script type="text/javascript" src="{{ asset('jquery-ui-1.8.16.custom/js/jquery-ui-1.8.16.custom.min.js')}}"></script>
+
+      <!-- styles -->
+      <link rel="stylesheet" type="text/css" href="{{ asset('css/univers-else-font/stylesheet.css')}}" />
+      <link type="text/css" href="{{ asset('jquery-ui-1.8.16.custom/css/ui-darkness/jquery-ui-1.8.16.custom.css')}}" rel="stylesheet" />
+    @endif
+
   </head>
   <body>
     <!-- begin container -->
@@ -29,6 +48,7 @@
               <div class="navbar-header">
                 <a class="navbar-brand navbar-left" href="/"><img src="{{ asset('images/wetaase-logo.png')}}" class='img-responsive'/></a>
               </div>
+              @if (Request::path() !== 'immigration-data')
               <form class="navbar-form navbar-right">
                 <div class="input-group">
                   <input type="text" class="form-control" placeholder="search this website...">
@@ -39,14 +59,17 @@
                   </div>
                 </div>
               </form>
+              @endif
               <ul class="nav navbar-nav navbar-right" id="navLinks">
                 <li class="active"><a href="/" data-toggle="tooltip" data-placement="left" title="home">home</a></li>
+                @if (Request::path()  !== 'immigration-data')
                 <li><a href="#wetaase" data-toggle="tooltip" data-placement="left" title="wetaase">wetaase</a></li>
                 <li><a href="#advisory" data-toggle="tooltip" data-placement="left" title="advisory">advisory</a></li>
                 <li><a href="#resources" data-toggle="tooltip" data-placement="left" title="resources">resources</a></li>
                 <!-- <li><a href="#stories" data-toggle="tooltip" data-placement="left" title="stories" >stories</a></li> -->
                 <li><a href="/immigration-data" data-toggle="tooltip" data-placement="left" title="immigration map">immigration map</a></li>
                 <li><a href="#contact" data-toggle="tooltip" data-placement="left" title="contact">contact</a></li>
+                @endif
               </ul>
             </div>
           </nav>
@@ -55,6 +78,7 @@
       <!-- end navigation -->
 
       @yield('content')
+      @if (Request::path() !== 'immigration-data')
       <!-- begin footer -->
       <div class="row site-footer" id="footer">
         <div class="col-md-6">
@@ -65,6 +89,7 @@
         </div>
       </div>
       <!-- end footer -->
+      @endif
     </div>
     <!-- end container -->
 

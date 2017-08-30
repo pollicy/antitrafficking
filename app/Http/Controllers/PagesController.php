@@ -11,6 +11,6 @@ class PagesController extends Controller
     }
 
     public function immigration(){
-      return "immigration page";
+      return view('pages.map');
     }
 }

@@ -77,9 +77,8 @@ body {
 }
 
 .contact-form-section {
-  background-color: #efefef;
-  text-align:center;
-  text-align:center;
+  background-color: #fff;
+  padding: 10px; 
 }
 
 .site-button {
