@@ -17,7 +17,6 @@ body {
 
 #navLinks li a {
   color: black;
-  display: block;
 }
 
 #navLinks li a:hover {
