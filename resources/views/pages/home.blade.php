@@ -47,8 +47,8 @@
 
   <!-- begin advisory -->
   <div class="row site-advisory" id="advisory">
-    <h3 class="alert">We have put together a list of potential red flags and indicators of human trafficking to help you recognize the signs. If you see any of these RED FLAGS, <b>contact the Wetaase Hotline at 0800 202 600</b> for information on referral services or to report the situation.</h3>
     <div class="col-md-6">
+      <h3 class="alert">We have put together a list of potential red flags and indicators of human trafficking to help you recognize the signs. If you see any of these RED FLAGS, <b>contact the Wetaase Hotline at 0800 202 600</b> for information on referral services or to report the situation.</h3>
       <ul>
         <li>Promises of employment opportunities with unreasonably high salary offers</li>
         <li>Unclear details of employer</li>
@@ -58,7 +58,7 @@
     </div>
     <div class="col-md-6">
       <h3 class="text-left"><span class="label site-label site-header">How to Identify a Victim of Human Trafficking</span></h3>
-      <ul>
+      <div><ul>
         <li>Lack of freedom of movement</li>
         <li>Very little salary or pay</li>
         <li>Works long hours without breaks</li>
@@ -68,6 +68,7 @@
         <li>Lack of identification document, passport or any finances</li>
         <li>Inconsistencies in stories about their journey, place of employment, timeline etc.</li>
       </ul>
+    </div>
     </div>
   </div>
   <!-- end advisory -->

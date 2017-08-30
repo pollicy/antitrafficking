@@ -3,15 +3,14 @@
 
 body {
   font-family: 'Raleway', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 #navBar {
   background-color: #ec6440;
-  padding-bottom: 7px;
   padding-top: 7px;
   border-bottom: 1px solid #ec6440;
-  height:90px;
+  height:95px;
   font-size: 18px;
 }
 
@@ -82,7 +81,7 @@ body {
 
 .site-header {
   font-family: 'Quicksand', sans-serif;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .site-label {

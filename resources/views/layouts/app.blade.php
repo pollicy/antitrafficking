@@ -42,11 +42,11 @@
     <div class="container-fluid" data-spy="scroll" data-target=".navbar" data-offset="10">
       <!-- begin navigation -->
       <div class="row">
-          <nav class="navbar" id="navBar" role="navigation">
+          <nav class="navbar navbar-fixed-top" id="navBar" role="navigation">
             <div class="container">
-              <div class="navbar-header">
+               <div class="navbar-header">
                 <a class="navbar-brand navbar-left" href="/"><img src="{{ asset('images/wetaase-logo.png')}}" class='img-responsive'/></a>
-              </div>
+              </div> 
               @if (Request::path() !== 'immigration-data')
               <!-- <form class="navbar-form navbar-right">
                 <div class="input-group">
