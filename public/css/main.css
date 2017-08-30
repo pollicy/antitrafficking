@@ -4,6 +4,7 @@
 body {
   font-family: 'Raleway', sans-serif;
   font-size: 17.5px;
+  color: grey;
 }
 
 #navBar {
@@ -65,12 +66,23 @@ body {
 
 .site-resources {
   color:grey;
+  margin-top: 70px;
+  margin-bottom: 70px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.site-learn {
+  margin-top: 70px;
+  margin-bottom: 70px;
 }
 
 .site-advisory {
   color: black;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 70px;
+  margin-bottom: 70px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .site-get-involved {
@@ -87,6 +99,7 @@ body {
   font-size: 27px;
   font-weight: bold;
   text-align: left;
+  color: black;
 }
 
 .site-label {
@@ -149,6 +162,13 @@ body {
   background-color: #fff;
   padding: 10px;
   text-align: center;
+}
+
+.site-contact {
+  margin-top: 70px;
+  margin-bottom: 70px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .site-button {

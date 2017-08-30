@@ -120,7 +120,7 @@
   <!-- end resources -->
 
   <!-- begin learn more -->
-  <div id="learn-more" class="row">
+  <div id="learn-more" class="row site-learn">
     <div class="col-md-6">
         <div class="alert site-alert-one">
           <div class="lead">The Act (What​ is​ done)</div>
@@ -154,7 +154,7 @@
 
 
   <!-- begin contact -->
-  <div class="row" id="contact">
+  <div class="row site-contact" id="contact">
     <div class="col-md-4 contact-form-section">
     </div>
     <div class="col-md-4 contact-form-section align-items-center">
