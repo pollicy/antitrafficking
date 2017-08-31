@@ -218,6 +218,7 @@
                 other_direction = "out";
                 hash_direction = "departures";
             }
+            
             setHashSilently(currentCountry+"/"+hash_direction);
             removeCurrentDrawings();
             $("#country_select").val(currentCountry);

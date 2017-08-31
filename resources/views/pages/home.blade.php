@@ -24,13 +24,29 @@
   </div>
   <!-- end home -->
 
-  <!-- begin graphic -->
-  <div class="row">
-    <div class="col-md-12">
-      <img src="{{ asset('images/wetaase-graphic.png') }}" class='img-responsive'/>
+  <!-- begin immigration/trafficking map -->
+  <div class="row col-md-12 site-map" id="map">
+    <h3 class="text-center"><span class="label site-label site-header">Where are migrants coming from? Where have migrants left to?</span></h3>
+    <div id="country_select_div">
+      <span id="explanation">Click on the map or pick a country here:</span>
+      <select id="country_select">
+      </select>
     </div>
+    <div id="inorout">
+      <span id="in" class="on"><a href="#" class="blackLink">Arrivals</a></span> <span id="out"><a href="#" class="blackLink">Departures</a></span>
+    </div>
+    <div id="canvas_container"></div>
+    <div id="legend">
+        <h2 id="country_name">
+        </h2>
+        <h3 id="popsize">
+        </h3>
+            <table id="countries" width="100%">
+            </table>
+    </div>
+    <div id="country_name_popup"></div>
   </div>
-  <!--end  graphic -->
+  <!-- end immigration/trafficking map -->
 
   <!-- begin wetaase -->
   <div class="row" id="wetaase">
@@ -119,29 +135,13 @@
   </div>
   <!-- end resources -->
 
-  <!-- begin immigration/trafficking map -->
-  <div class="row col-md-12 site-map" id="map">
-    <h3 class="text-center"><span class="label site-label site-header">Where are migrants coming from? Where have migrants left to?</span></h3>
-    <div id="country_select_div">
-      <span id="explanation">Click on the map or pick a country here:</span>
-      <select id="country_select">
-      </select>
+  <!-- begin graphic -->
+  <div class="row">
+    <div class="col-md-12">
+      <img src="{{ asset('images/wetaase-graphic.png') }}" class='img-responsive'/>
     </div>
-    <div id="inorout">
-      <span id="in" class="on"><a href="#" class="blackLink">Arrivals</a></span> <span id="out"><a href="#" class="blackLink">Departures</a></span>
-    </div>
-    <div id="canvas_container"></div>
-    <div id="legend">
-        <h2 id="country_name">
-        </h2>
-        <h3 id="popsize">
-        </h3>
-            <table id="countries" width="100%">
-            </table>
-    </div>
-    <div id="country_name_popup"></div>
   </div>
-  <!-- end immigration/trafficking map -->
+  <!--end  graphic -->
 
   <!-- begin learn more -->
   <div id="learn-more" class="row site-learn">
