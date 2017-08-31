@@ -121,7 +121,7 @@
 
   <!-- begin immigration/trafficking map -->
   <div class="row col-md-12 site-map" id="map">
-    <h3 class="text-center"><span class="label site-label site-header">Where are migrants coming from? Where have migrants left?</span></h3>
+    <h3 class="text-center"><span class="label site-label site-header">Where are migrants coming from? Where have migrants left to?</span></h3>
     <div id="country_select_div">
       <span id="explanation">Click on the map or pick a country here:</span>
       <select id="country_select">
