@@ -112,7 +112,7 @@
             window.location = pathname + '#home';
             break;
             case '2':
-              window.location = pathname + '#wetaase';
+              window.location = pathname + '#map';
               break;
               case '3':
                 window.location = pathname + '#advisory';
@@ -121,7 +121,7 @@
                   window.location = pathname + '#resources';
                   break;
                   case '5':
-                    window.location = pathname + '#map';
+                    window.location = pathname + '#wetaase';
                     break;
                     case '6':
                       window.location = pathname + '#contact';
@@ -139,7 +139,7 @@
         var current_arrows=[];
         var current_countries=[];
         var currentCircles=[];
-        var currentCountry="UGA";
+        var currentCountry = "UGA";
         var previousCountry = "UGA";
         var direction = "out";
         var unselected_color = "#ccc";
@@ -218,7 +218,7 @@
                 other_direction = "out";
                 hash_direction = "departures";
             }
-            
+
             setHashSilently(currentCountry+"/"+hash_direction);
             removeCurrentDrawings();
             $("#country_select").val(currentCountry);
