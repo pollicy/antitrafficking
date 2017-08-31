@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <!-- begin immigration/trafficking map -->
-<div class="row col-md-12" style="margin-top:5em;">
+<div class="row col-md-12" style="margin-top:5em;" id="map">
   <h3 class="text-center"><span class="label site-label site-header">Where are migrants coming from? Where have migrants left?</span></h3>
   <div id="country_select_div">
     <span id="explanation">Click on the map or pick a country here:</span>
