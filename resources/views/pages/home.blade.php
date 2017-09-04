@@ -179,14 +179,79 @@
 
   <!-- begin contact -->
   <div class="row site-contact" id="contact">
-    <div class="col-md-4 contact-form-section">
+    <div class="col-md-2 contact-form-section">
     </div>
-    <div class="col-md-4 contact-form-section align-items-center">
+    <div class="col-md-8 contact-form-section align-items-center">
       <h3><span class="site-label site-header">Get in touch</span></h3>
-      <div class="g-recaptcha" data-sitekey="{{env('GOOGLE_RECAPTCHA_KEY')}}"></div>
-      <div class="btn btn-danger btn-lg breather">send</div>
+      <form id="contact-form" method="post" action="{{ asset('misc/sendMessage.php')}}" role="form">
+
+                        <div class="messages"></div>
+
+                        <div class="controls">
+
+                            <div class="row breather">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="form_name">NAME *</label>
+                                        <input id="form_name" type="text" name="name" class="form-control" placeholder="Please enter your name *" required="required" data-error="Name is required.">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="form_email">EMAIL *</label>
+                                        <input id="form_email" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required.">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row breather" >
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="form_website">WEBSITE *</label>
+                                        <input id="form_website" type="url" name="website" class="form-control" placeholder="http://yourwebsite.com" required="required" data-error="Valid website is required.">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="form_subject">SUBJECT *</label>
+                                        <input id="form_subject" type="text" name="subject" class="form-control" placeholder="Please enter the subject of your message" required="required" data-error="Subject of your message is required.">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row breather">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="form_message">MESSAGE *</label>
+                                        <textarea id="form_message" name="message" class="form-control" placeholder="Message for me *" rows="4" required="required" data-error="Please,leave us a message."></textarea>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 breather">
+                                    <div class="form-group">
+                                        <div class="g-recaptcha" data-sitekey="{{env('GOOGLE_RECAPTCHA_KEY')}}"></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <input type="submit" class="btn btn-danger btn-send btn-lg breather" value="Send message">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p class="text-muted"><strong>*</strong> These fields are required.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+      <!-- <div class="g-recaptcha" data-sitekey="{{env('GOOGLE_RECAPTCHA_KEY')}}"></div>
+      <div class="btn btn-danger btn-lg breather">send</div> -->
     </div>
-    <div class="col-md-4 contact-form-section">
+    <div class="col-md-2 contact-form-section">
     </div>
   </div>
   <!-- end contact -->

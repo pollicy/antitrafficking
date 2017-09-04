@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- header -->
-    <title>@yield('title') | {{ config('app.name', 'Wetaase | Pollicy') }}</title>
+    <title>@yield('title') | {{ config('app.name', 'Wetaase - Pollicy') }}</title>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -16,7 +16,6 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <link href="{{ asset('css/main.css')}}" rel="stylesheet">
 
     <!-- recaptcha -->
     <script src='https://www.google.com/recaptcha/api.js'></script>
@@ -28,11 +27,13 @@
       <script type="text/javascript" src="{{ asset('js/modernizr.geoloc.js')}}"></script>
       <script type="text/javascript" src="{{ asset('jquery-ui-1.8.16.custom/js/jquery-1.6.2.min.js')}}"></script>
       <script type="text/javascript" src="{{ asset('jquery-ui-1.8.16.custom/js/jquery-ui-1.8.16.custom.min.js')}}"></script>
+      <script src="{{ asset('js/validator.js')}}"></script>
+        <script src="{ asset('misc/contact.js')}"></script>
 
       <!-- styles -->
       <link rel="stylesheet" type="text/css" href="{{ asset('css/univers-else-font/stylesheet.css')}}" />
       <link type="text/css" href="{{ asset('jquery-ui-1.8.16.custom/css/ui-darkness/jquery-ui-1.8.16.custom.css')}}" rel="stylesheet" />
-
+      <link href="{{ asset('css/main.css')}}" rel="stylesheet">
 
   </head>
   <body>
@@ -514,6 +515,36 @@
                 }
             }
 
+
+            //email form
+            $('#contact-form').validator();
+
+            $('#contact-form').on('submit', function (e) {
+                if (!e.isDefaultPrevented()) {
+                    var hostname = windows.location.hostname;
+                    var url = hostname + "/sendMessage.php";
+
+                    $.ajax({
+                        type: "POST",
+                        url: url,
+                        data: $(this).serialize(),
+                        success: function (data)
+                        {
+                            var messageAlert = 'alert-' + data.type;
+                            var messageText = data.message;
+
+                            var alertBox = '<div class="alert ' + messageAlert + ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + messageText + '</div>';
+                            if (messageAlert && messageText) {
+                                $('#contact-form').find('.messages').html(alertBox);
+                                $('#contact-form')[0].reset();
+                                grecaptcha.reset();
+                            }
+                        }
+                    });
+                    return false;
+                }
+            })
+
         });
 
         hasher.initialized.add(parseHash);
@@ -521,5 +552,6 @@
         hasher.init(); //start listening for history change
     </script>
     <!-- end map js -->
+
   </body>
 </html>
