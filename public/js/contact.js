@@ -4,8 +4,8 @@ $(function () {
 
     $('#contact-form').on('submit', function (e) {
         if (!e.isDefaultPrevented()) {
-            var url = "sendMessage.php";
-
+            var url = "{{ asset('misc/sendMessage.php')}}";
+            alert(url);
             $.ajax({
                 type: "POST",
                 url: url,

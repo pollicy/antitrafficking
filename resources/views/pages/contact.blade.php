@@ -1,13 +1,11 @@
 <?php
-require_once('./recaptcha/src/autoload.php');
-require_once('./sendgrid/lib/loader.php');
-require_once('./php-http-client/lib/Client.php');
-require_once('./php-http-client/lib/Response.php');
+use SendGrid as sendGrid;
+//use ReCaptcha\ReCaptcha as ReCaptcha;
+
+require_once $_SERVER['DOCUMENT_ROOT'].'/vendor/google/recaptcha/src/autoload.php';
+
 
 $fields = array('name' => 'Name', 'email' => 'Email', 'website' => 'Website', 'subject' => 'Subject', 'message' => 'Message');
-$okMessage = 'Your message was successfully sent. Thanks for your communication! Someone will get back to you within 24-72 hours.';
-$errorMessage = 'There was an error while sending your message. Please try again later';
-$responseArray = array('type' => 'danger', 'message' => $errorMessage);
 
 try{
   if (!empty($_POST)) {
@@ -17,23 +15,21 @@ try{
 
     //verify recaptcha
     $recaptcha = new \ReCaptcha\ReCaptcha(getenv('GOOGLE_RECAPTCHA_SECRET'));
-    $response = $recaptcha->verify($_POST['g-recaptcha-response'], $_SERVER['REMOTE_ADDR']);
+    $resp = $recaptcha->verify($_POST['g-recaptcha-response'], $_SERVER['REMOTE_ADDR']);
     if (!$response->isSuccess()) {
       throw new \Exception('ReCaptcha was not validated.');
     }
 
     //email
-    $mailer = new \sendGrid(getenv('SENDGRID_API_KEY'));
-    $from = new \SendGrid\Email($_POST['name']." through Wetaase website", $_POST['email']);
+    $mailer = new \sendGrid(env('SENDGRID_API_KEY'));
+    //$mailer = new \sendGrid(getenv('SENDGRID_API_KEY'));
+    $from = new \SendGrid\Email("Wetaase User", $_POST['email']);
     $subject = $_POST['subject'];
-    $emailText = "<b>Name:</b> ".$_POST['name']."<br/><b>Website:</b> ".(!empty($_POST['website']) ? $_POST['website'] : "Not provided")."<br/><b>Message:</b> ".$_POST['message'];
+    $emailText = "Name: ".$_POST['name']."<br/>Website: ".(!empty($_POST['website']) ? $_POST['website'] : "Not provided")."Message: ".$_POST['message'];
     $content = new sendGrid\Content("text/html", $emailText);
     $to = new sendGrid\Email(null, getenv('MAIL_FROM_ADDRESS'));
     $mail = new sendGrid\Mail($from, $subject, $to, $content);
-    $emailStatus = $mailer->client->mail()->send()->post($mail);
-    if ($emailStatus->statusCode() === 202) {
-      $responseArray = array('type' => 'success', 'message' => $okMessage);
-    }
+    $emailStatusCode = $mailer->client->mail()->send()->post($mail);
   }
 }
 catch (\Exception $e)

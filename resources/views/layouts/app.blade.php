@@ -28,7 +28,7 @@
       <script type="text/javascript" src="{{ asset('jquery-ui-1.8.16.custom/js/jquery-1.6.2.min.js')}}"></script>
       <script type="text/javascript" src="{{ asset('jquery-ui-1.8.16.custom/js/jquery-ui-1.8.16.custom.min.js')}}"></script>
       <script src="{{ asset('js/validator.js')}}"></script>
-        <script src="{ asset('misc/contact.js')}"></script>
+      <!-- <script src="{ asset('js/contact.js')}"></script> -->
 
       <!-- styles -->
       <link rel="stylesheet" type="text/css" href="{{ asset('css/univers-else-font/stylesheet.css')}}" />
@@ -477,6 +477,7 @@
             $("#legend").delegate(".country_name","mouseleave",function(e){
                 $(this).css("text-decoration","none");
             });
+
             var progressBar = $("#progressbar");
 
             if (window.applicationCache){
@@ -515,36 +516,6 @@
                 }
             }
 
-
-            //email form
-            $('#contact-form').validator();
-
-            $('#contact-form').on('submit', function (e) {
-                if (!e.isDefaultPrevented()) {
-                    var hostname = windows.location.hostname;
-                    var url = hostname + "/sendMessage.php";
-
-                    $.ajax({
-                        type: "POST",
-                        url: url,
-                        data: $(this).serialize(),
-                        success: function (data)
-                        {
-                            var messageAlert = 'alert-' + data.type;
-                            var messageText = data.message;
-
-                            var alertBox = '<div class="alert ' + messageAlert + ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + messageText + '</div>';
-                            if (messageAlert && messageText) {
-                                $('#contact-form').find('.messages').html(alertBox);
-                                $('#contact-form')[0].reset();
-                                grecaptcha.reset();
-                            }
-                        }
-                    });
-                    return false;
-                }
-            })
-
         });
 
         hasher.initialized.add(parseHash);
@@ -552,6 +523,37 @@
         hasher.init(); //start listening for history change
     </script>
     <!-- end map js -->
+
+    <!-- ajax form -->
+    <script type="text/javascript">
+    $(function () {
+
+        $('#contact-form').validator();
+        $('#contact-form').on('submit', function (e) {
+            if (!e.isDefaultPrevented()) {
+                var url = "{{ asset('misc/sendMessage.php')}}";
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: $(this).serialize(),
+                    success: function (data)
+                    {
+                        var messageAlert = 'alert-' + data.type;
+                        var messageText = data.message;
+
+                        var alertBox = '<div class="alert ' + messageAlert + ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + messageText + '</div>';
+                        if (messageAlert && messageText) {
+                            $('#contact-form').find('.messages').html(alertBox);
+                            $('#contact-form')[0].reset();
+                            grecaptcha.reset();
+                        }
+                    }
+                });
+                return false;
+            }
+        })
+    });
+    </script>
 
   </body>
 </html>
